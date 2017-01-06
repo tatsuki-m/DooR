@@ -57,41 +57,41 @@ include CMakeFiles/DooR.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/DooR.dir/flags.make
 
-CMakeFiles/DooR.dir/main.cpp.o: CMakeFiles/DooR.dir/flags.make
-CMakeFiles/DooR.dir/main.cpp.o: main.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/miura/programming/door_api/DooR/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DooR.dir/main.cpp.o"
-	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DooR.dir/main.cpp.o -c /home/miura/programming/door_api/DooR/main.cpp
+CMakeFiles/DooR.dir/src/main.cpp.o: CMakeFiles/DooR.dir/flags.make
+CMakeFiles/DooR.dir/src/main.cpp.o: src/main.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/miura/programming/door_api/DooR/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/DooR.dir/src/main.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/DooR.dir/src/main.cpp.o -c /home/miura/programming/door_api/DooR/src/main.cpp
 
-CMakeFiles/DooR.dir/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DooR.dir/main.cpp.i"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/miura/programming/door_api/DooR/main.cpp > CMakeFiles/DooR.dir/main.cpp.i
+CMakeFiles/DooR.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/DooR.dir/src/main.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/miura/programming/door_api/DooR/src/main.cpp > CMakeFiles/DooR.dir/src/main.cpp.i
 
-CMakeFiles/DooR.dir/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DooR.dir/main.cpp.s"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/miura/programming/door_api/DooR/main.cpp -o CMakeFiles/DooR.dir/main.cpp.s
+CMakeFiles/DooR.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/DooR.dir/src/main.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/miura/programming/door_api/DooR/src/main.cpp -o CMakeFiles/DooR.dir/src/main.cpp.s
 
-CMakeFiles/DooR.dir/main.cpp.o.requires:
+CMakeFiles/DooR.dir/src/main.cpp.o.requires:
 
-.PHONY : CMakeFiles/DooR.dir/main.cpp.o.requires
+.PHONY : CMakeFiles/DooR.dir/src/main.cpp.o.requires
 
-CMakeFiles/DooR.dir/main.cpp.o.provides: CMakeFiles/DooR.dir/main.cpp.o.requires
-	$(MAKE) -f CMakeFiles/DooR.dir/build.make CMakeFiles/DooR.dir/main.cpp.o.provides.build
-.PHONY : CMakeFiles/DooR.dir/main.cpp.o.provides
+CMakeFiles/DooR.dir/src/main.cpp.o.provides: CMakeFiles/DooR.dir/src/main.cpp.o.requires
+	$(MAKE) -f CMakeFiles/DooR.dir/build.make CMakeFiles/DooR.dir/src/main.cpp.o.provides.build
+.PHONY : CMakeFiles/DooR.dir/src/main.cpp.o.provides
 
-CMakeFiles/DooR.dir/main.cpp.o.provides.build: CMakeFiles/DooR.dir/main.cpp.o
+CMakeFiles/DooR.dir/src/main.cpp.o.provides.build: CMakeFiles/DooR.dir/src/main.cpp.o
 
 
 # Object files for target DooR
 DooR_OBJECTS = \
-"CMakeFiles/DooR.dir/main.cpp.o"
+"CMakeFiles/DooR.dir/src/main.cpp.o"
 
 # External object files for target DooR
 DooR_EXTERNAL_OBJECTS =
 
-DooR: CMakeFiles/DooR.dir/main.cpp.o
+DooR: CMakeFiles/DooR.dir/src/main.cpp.o
 DooR: CMakeFiles/DooR.dir/build.make
-DooR: /usr/local/lib/libdoor_bridge.so.1.0.0
 DooR: /usr/local/lib/libdoor_shared_memory.so.1.0.0
+DooR: /usr/local/lib/libdoor_bridge.so.1.0.0
 DooR: CMakeFiles/DooR.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/miura/programming/door_api/DooR/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable DooR"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DooR.dir/link.txt --verbose=$(VERBOSE)
@@ -101,7 +101,7 @@ CMakeFiles/DooR.dir/build: DooR
 
 .PHONY : CMakeFiles/DooR.dir/build
 
-CMakeFiles/DooR.dir/requires: CMakeFiles/DooR.dir/main.cpp.o.requires
+CMakeFiles/DooR.dir/requires: CMakeFiles/DooR.dir/src/main.cpp.o.requires
 
 .PHONY : CMakeFiles/DooR.dir/requires
 

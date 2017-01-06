@@ -11,6 +11,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.6.1/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.6.1/CMakeSystem.cmake"
   "CMakeLists.txt"
+  "src/CMakeLists.txt"
   "/usr/local/share/cmake/door_bridge/door_bridge-config-release.cmake"
   "/usr/local/share/cmake/door_bridge/door_bridge-config.cmake"
   "/usr/local/share/cmake/door_shared_memory/door_shared_memory-config-release.cmake"
@@ -44,6 +45,7 @@ set(CMAKE_MAKEFILE_OUTPUTS
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
   "CMakeFiles/CMakeDirectoryInformation.cmake"
+  "src/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
