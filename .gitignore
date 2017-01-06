@@ -27,3 +27,12 @@
 *.exe
 *.out
 *.app
+
+# iginore for cmake
+CMakeCache.txt
+Makefile
+cmake_isntall.cmake
+CMakeFiles/
+
+DooR
+
