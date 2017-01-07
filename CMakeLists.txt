@@ -26,4 +26,5 @@ add_executable(DooR ${APISrcs})
 target_link_libraries(DooR door_shared_memory)
 target_link_libraries(DooR door_bridge)
 target_link_libraries(DooR door_api)
+target_link_libraries(DooR door_unix_domain_socket_client)
 
