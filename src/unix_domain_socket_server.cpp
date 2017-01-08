@@ -1,6 +1,16 @@
 #include "unix_domain_socket_server.h"
 
 std::string BASE_SOCKET_NAME = "/tmp/door-unix-socket";
+std::vector<DoorWorker*> UnixDomainSocketServer::doorWorkers;
+
+void
+signalHandler(int sigNum) {
+    std::cout << "Interrupt signal (" << sigNum << ") received." << std::endl;
+    unlink(BASE_SOCKET_NAME.c_str());
+    UnixDomainSocketServer::deleteWorkers();
+    std::cout << "Going to sleep.." <<std::endl;
+    exit(sigNum);
+}
 
 // default  use for SHARED_SOCKET
 UnixDomainSocketServer::UnixDomainSocketServer() {
@@ -14,8 +24,10 @@ UnixDomainSocketServer::~UnixDomainSocketServer() {
     deleteWorkers();
 }
 
+
 void
 UnixDomainSocketServer::run() {
+    signal(SIGINT, signalHandler);
     create();
     serve();
 }
@@ -148,6 +160,7 @@ UnixDomainSocketServer::closeSocket() {
 
 void
 UnixDomainSocketServer::deleteWorkers() {
+    std::cout << "UnisDomainSocketServer::deleteWorkers()" << std::endl;
     std::for_each(doorWorkers.begin(), doorWorkers.end(), [](DoorWorker* p) { delete p; });
     doorWorkers.clear();
 }

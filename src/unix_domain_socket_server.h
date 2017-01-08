@@ -15,6 +15,7 @@
 #include <string>
 #include <vector>
 #include <thread>
+#include <csignal>
 
 #include "door_worker.h"
 #include "socket_ack.h"
@@ -26,6 +27,7 @@ public:
     UnixDomainSocketServer();
     ~UnixDomainSocketServer();
     void run();
+    static void deleteWorkers();
 
 private:
     void create();
@@ -35,11 +37,11 @@ private:
     void createDoorWorker(std::string);
     bool getRequest(int, SocketAck&);
     void closeSocket();
-    void deleteWorkers();
     int server_;
     std::string socketName_;
-    std::vector<DoorWorker*> doorWorkers;
+    static std::vector<DoorWorker*> doorWorkers;
 
 };
+
 #endif
 
