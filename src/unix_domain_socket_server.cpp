@@ -1,6 +1,6 @@
 #include "unix_domain_socket_server.h"
 
-std::string BASE_SOCKET_NAME = "/tmp/door-unix-socket";
+std::string BASE_SOCKET_NAME = "/tmp/unix-socket/door-unix-socket";
 std::vector<DoorWorker*> UnixDomainSocketServer::doorWorkers;
 
 void

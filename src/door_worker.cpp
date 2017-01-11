@@ -12,12 +12,14 @@ void
 DoorWorker::run(std::string shmKey) {
     SharedMemory<Dpi, SharedPacketInformation> doorShm = SharedMemory<Dpi, SharedPacketInformation>(shmKey);
     std::cout << "DoorWorker::run" << std::endl;
-    unsigned int id = 100;
-    unsigned int srcPort = 1;
-    unsigned int dstPort = 1;
-    Dpi dpi = Dpi(id, srcPort, dstPort);
+    Dpi dpi = Dpi();
+    for (int i =0; i < sizeof(dpi.data_); i++) {
+        dpi.data_[i] = 'a';
+    }
+
     std::cout << "DoorWorker::run start writing" << std::endl;
     doorShm.write(&dpi);
+    doorShm.removeSharedMemory();
     std::cout << "DoorWorker::run finish writing" << std::endl;
 }
 
