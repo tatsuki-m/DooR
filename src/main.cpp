@@ -12,15 +12,15 @@ main() {
     UnixDomainSocketServer socket = UnixDomainSocketServer();
     socket.run();
 
-/*
     //read
+    /*
     std::string key = "hoge";
     SharedMemory<Dpi, SharedPacketInformation>* sharedKeyMemory2 = new SharedMemory<Dpi, SharedPacketInformation>(key);
     Dpi* dpi2 = NULL;
     sharedKeyMemory2->read(&dpi2);
-    std::cout << dpi2->data_ << std::endl;
+    //std::cout << dpi2->data_ << std::endl;
     delete dpi2;
-*/
+    */
 
     return 0;
 };

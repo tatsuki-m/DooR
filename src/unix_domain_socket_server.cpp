@@ -130,8 +130,9 @@ UnixDomainSocketServer::getRequest(int client, SocketAck &ack) {
 void
 UnixDomainSocketServer::sendAck(int client, SocketAck &ack) {
     std::cout << "UnisDomainSocketServer::sendAck: " << std::endl;
-    int cc;
+    //ack.res = true;
 
+    int cc;
     try {
         if ((cc = send(client, &ack, sizeof(ack), 0)) < 0) {
             std::cerr << "UnisDomainSocketServer::sendSocketName";
