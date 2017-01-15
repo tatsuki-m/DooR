@@ -102,6 +102,7 @@ UnixDomainSocketServer::handle(int client) {
         switch(ack.type) {
             case ASK_DOOR:
                 createDoorWorker(ack.data);
+                sleep(1);
                 sendAck(client, ack);
                 break;
             default:

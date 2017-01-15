@@ -9,18 +9,18 @@
 
 int
 main() {
-    UnixDomainSocketServer socket = UnixDomainSocketServer();
-    socket.run();
+    //UnixDomainSocketServer socket = UnixDomainSocketServer();
+    //socket.run();
 
     //read
-    /*
     std::string key = "hoge";
-    SharedMemory<Dpi, SharedPacketInformation>* sharedKeyMemory2 = new SharedMemory<Dpi, SharedPacketInformation>(key);
-    Dpi* dpi2 = NULL;
-    sharedKeyMemory2->read(&dpi2);
-    //std::cout << dpi2->data_ << std::endl;
-    delete dpi2;
-    */
+    SharedMemory<Dpi, SharedPacketInformation> sharedKeyMemory2 = SharedMemory<Dpi, SharedPacketInformation>(key);
+    Dpi dpi = Dpi();
+    for (unsigned long i = 0; i < SharedPacketInformation::getSharedDataSize(); i++) {
+        dpi.data_[i] = 'a';
+    }
+    sharedKeyMemory2.write(&dpi);
+    sharedKeyMemory2.removeSharedMemory();
 
     return 0;
 };
