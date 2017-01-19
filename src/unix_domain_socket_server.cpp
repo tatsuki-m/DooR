@@ -96,23 +96,19 @@ UnixDomainSocketServer::serve() {
 
 void
 UnixDomainSocketServer::handle(int client) {
-    bool is_success;
-    SocketAck ack;
+    bool is_success, is_created_worker;
+    DoorSocket ack;
     if (is_success = getRequest(client, ack)) {
-        switch(ack.type) {
-            case ASK_DOOR:
-                createDoorWorker(ack.data);
-                sleep(1);
-                sendAck(client, ack);
-                break;
-            default:
-                break;
+        if (createDoorWorker(ack)) {
+            sleep(1);
+            std::cout << "sucess" << std::endl;
+            sendAck(client, ack);
         }
     }
 }
 
 bool
-UnixDomainSocketServer::getRequest(int client, SocketAck &ack) {
+UnixDomainSocketServer::getRequest(int client, DoorSocket &ack) {
     std::cout << "UnixScoket::getRequest: " << std::endl;
     try {
         int cc;
@@ -129,7 +125,7 @@ UnixDomainSocketServer::getRequest(int client, SocketAck &ack) {
 }
 
 void
-UnixDomainSocketServer::sendAck(int client, SocketAck &ack) {
+UnixDomainSocketServer::sendAck(int client, DoorSocket &ack) {
     std::cout << "UnisDomainSocketServer::sendAck: " << std::endl;
     //ack.res = true;
 
@@ -148,10 +144,11 @@ UnixDomainSocketServer::sendAck(int client, SocketAck &ack) {
 
 }
 
-void
-UnixDomainSocketServer::createDoorWorker(std::string shmKey) {
-    DoorWorker *worker = new DoorWorker(shmKey);
+bool
+UnixDomainSocketServer::createDoorWorker(DoorSocket& ack) {
+    DoorWorker *worker = new DoorWorker(ack.data, ack.type);
     doorWorkers.push_back(worker);
+    return true;
 }
 
 void

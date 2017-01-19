@@ -18,7 +18,7 @@
 #include <csignal>
 
 #include "door_worker.h"
-#include "door_unix_domain_socket_client/unix_domain_socket_client.h"
+#include "door_api/door_socket.h"
 
 class UnixDomainSocketServer
 {
@@ -33,9 +33,9 @@ private:
     void create();
     void serve();
     void handle(int);
-    void sendAck(int, SocketAck&);
-    void createDoorWorker(std::string);
-    bool getRequest(int, SocketAck&);
+    void sendAck(int, DoorSocket&);
+    bool createDoorWorker(DoorSocket&);
+    bool getRequest(int, DoorSocket&);
     void closeSocket();
     int server_;
     std::string socketName_;
