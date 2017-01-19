@@ -100,7 +100,6 @@ UnixDomainSocketServer::handle(int client) {
     DoorSocket ack;
     if (is_success = getRequest(client, ack)) {
         if (createDoorWorker(ack)) {
-            sleep(1);
             std::cout << "sucess" << std::endl;
             sendAck(client, ack);
         }
