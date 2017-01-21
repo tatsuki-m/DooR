@@ -18,12 +18,12 @@ include_directories("${CMAKE_CURRENT_SOURCE_DIR}")
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/src")
 
 # install package
-find_package(door_shared_memory REQUIRED)
+find_package(door_ipc REQUIRED)
 find_package(door_bridge REQUIRED)
 
 # select executable file
 add_executable(DooR ${APISrcs})
-target_link_libraries(DooR door_shared_memory)
+target_link_libraries(DooR door_ipc)
 target_link_libraries(DooR door_bridge)
 target_link_libraries(DooR door_api)
 target_link_libraries(DooR door_unix_domain_socket_client)

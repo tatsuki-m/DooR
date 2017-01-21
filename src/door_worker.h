@@ -5,13 +5,13 @@
 #include <string>
 #include <thread>
 
-#include "door_shared_memory/shared_memory.h"
-#include "door_shared_memory/shared_key.h"
-#include "door_shared_memory/shared_packet_information.h"
-#include "door_shared_memory/dpi.h"
+#include "door_ipc/shared_memory.h"
+#include "door_ipc/shared_key.h"
+#include "door_ipc/shared_packet_information.h"
+#include "door_ipc/dpi.h"
+#include "door_ipc/sync_semaphore.h"
+#include "door_ipc/socket_server.h"
 #include "door_api/door_socket.h"
-
-#include "shared_data_socket_server.h"
 
 class DoorWorker
 {
@@ -24,7 +24,8 @@ private:
     DoorSocketType type_;
     std::string sharedDataKey_;
     void writeDataToShm();
-    void sendDataWithSocket();
+    void sendUds();
+    void sendTcp();
 };
 
 #endif
