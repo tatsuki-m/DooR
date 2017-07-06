@@ -29,7 +29,26 @@ main() {
     }
     sharedKeyMemory2.write(&dpi);
     sharedKeyMemory2.removeSharedMemory();
+*
+/
+
+/*
+    int counter = 0;
+    struct timespec startTime, endTime;
+    //SharedMemory<Dpi, SharedPacketInformation> doorShm = SharedMemory<Dpi, SharedPacketInformation>(shmKey);
+    clock_gettime(CLOCK_MONOTONIC, &startTime);
+    while(counter<1000) {
+        counter++;
+    }
+    clock_gettime(CLOCK_MONOTONIC, &endTime);
+    std::string fileName = "hoge.csv";
+    std::cout << fileName << std::endl;
+    std::ofstream ofs(fileName.c_str(), std::ios::app);
+    ofs << std::setfill('1') << std::setw(6) << startTime.tv_nsec << ",";
+    ofs << std::setfill('0') << std::setw(6) << endTime.tv_nsec << ",";
+    ofs << endTime.tv_nsec - startTime.tv_nsec << std::endl;
 */
+
 
     return 0;
 };
